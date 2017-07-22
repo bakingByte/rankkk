@@ -1,0 +1,6 @@
+framework module Pods_RankAppSwift {
+  umbrella header "Pods-RankAppSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
