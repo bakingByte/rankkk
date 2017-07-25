@@ -36,14 +36,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener, We
 
     EditText etUsername, etPassword;
     CallWebService webService;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
         mContext = Login.this;
+//        userId = SharedPreferencesManger.getPrefValue(mContext, Constants.USERID, SharedPreferencesManger.PREF_DATA_TYPE.STRING).toString();
+//        if (!userId.isEmpty()) {
+//            Intent intent = new Intent(this, MainActivity.class);
+//            startActivity(intent);
+//
+//        }
+        setContentView(R.layout.activity_login);
+
         //initialization
         initialization();
+
 
         //setClickListener
         setClickListener();
@@ -107,9 +116,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener, We
 
             case R.id.tv_login:
 
+                CommonUtils.hideKeyboard(mContext);
+
                 if (validateLoginForm()) {
                     if (new ConnectionDetector(mContext).isConnectingToInternet()) {
-
                         loginApi();
                     } else {
                         CommonUtils.showAlertDialog(mContext, mContext.getResources().getString(R.string.no_network_connection), mContext.getResources().getString(R.string.check_connection));
@@ -142,7 +152,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener, We
                         JSONObject jsonObject = new JSONObject(result);
                         boolean success = JSONUtils.getBooleanFromJSON(jsonObject, "success");
                         if (success == true) {
-                            JSONArray jsonArray = jsonObject.getJSONArray("email");
+                            JSONArray jsonArray = jsonObject.getJSONArray("user");
                             JSONObject userData = jsonArray.getJSONObject(0);
 
                             SharedPreferencesManger.setPrefValue(mContext, Constants.EMAILID, JSONUtils.getStringFromJSON(userData, "email"), SharedPreferencesManger.PREF_DATA_TYPE.STRING);

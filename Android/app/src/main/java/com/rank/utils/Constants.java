@@ -8,7 +8,7 @@ public class Constants {
 
     // Enum
     public enum SERVICE_TYPE {
-        LOGIN,SIGNUP
+        LOGIN,SIGNUP,SHOW_POST,LIKEORDISLIKE,SHOW_COMMENT,SEND_COMMENT
 
     }
 

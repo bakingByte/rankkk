@@ -80,10 +80,17 @@ public class CallWebService extends AsyncTask<String, String, String> {
             connection.setRequestProperty("Accept-Charset", "UTF-8");
 
             connection.setConnectTimeout(30000);
-            connection.setRequestMethod("POST");
-            connection.setUseCaches(false);
-            connection.setDoInput(true);
-            connection.setDoOutput(true);
+
+           if(url.getQuery()!=null) {
+               connection.setRequestMethod("POST");
+               connection.setUseCaches(false);
+               connection.setDoInput(true);
+               connection.setDoOutput(true);
+
+           } else
+            connection.setRequestMethod("GET");
+
+
 
             //Send request
             if (postParameters != null) {

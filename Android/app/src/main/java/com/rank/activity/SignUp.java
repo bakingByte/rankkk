@@ -148,7 +148,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener, W
 
     //validation
     private boolean validateLoginForm() {
-
+        if (etFirstName.getText().toString().trim().isEmpty()) {
+            CommonUtils.showToast(mContext, getResources().getString(R.string.txt_empty_username));
+            return false;
+        }
+        if (etPassword.getText().toString().trim().isEmpty()) {
+            CommonUtils.showToast(mContext, mContext.getResources().getString(R.string.txt_empty_password));
+            return false;
+        }
         return true;
     }
 
