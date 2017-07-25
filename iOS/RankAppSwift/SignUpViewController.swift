@@ -25,10 +25,22 @@ class SignUpViewController: UIViewController {
     @IBAction func btnSignUp(_ sender: Any){
         
         if isValid(){
-//            loginDetails = ["firstname" :txt_firstname.text ?? "" ,"name":txt_lastname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_type":kDEVICE_TYPE_VALUE, "device_id":"wqwqwqwqwqwq","device_token":"hjsaghsahhs", "channel":"APP"]
-//            
-//            print("%@",loginDetails)
-            loginDetails = ["password_confirmation" :txt_password.text ?? "" ,"name":txt_lastname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "", "channel":"APP"]
+            
+            AppDelegate.showPrgressHUD()
+            
+            loginDetails = ["password_confirmation" :txt_password.text ?? "" ,"lastname":txt_lastname.text ?? "","firstname":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_id": "wqwqwqwqwqwq","device_type": "I","device_token": "hjsaghsahhs", "channel":"APP"]
+            
+            print("%@",loginDetails)
+            
+            /*
+             "device_id": "wqwqwqwqwqwq",
+             "device_type": "I",
+             "device_token": "hjsaghsahhs",
+             “firstname”:”santosh”
+             “lastname”:”maurya”,
+             "channel"=APP   
+
+             */
             
             print("%@",loginDetails)
             
@@ -36,12 +48,17 @@ class SignUpViewController: UIViewController {
             let manager          = WebServices()
             manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_REGISTRATION, completionHandler: { (response, responseCode, nil) in
                 
+                AppDelegate.hidePrgressHUD()
                 print(response ?? "")
                 
-//                self.dismiss(animated: true, completion: nil)
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GlobeViewController") as! GlobeViewController
-                self.navigationController?.present(nextViewController, animated: true, completion: nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+                self.navigationController?.pushViewController(nextViewController, animated: true)
+                
+//                self.dismiss(animated: true, completion: nil)
+//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GlobeViewController") as! GlobeViewController
+//                self.navigationController?.present(nextViewController, animated: true, completion: nil)
                 
             }
             )}

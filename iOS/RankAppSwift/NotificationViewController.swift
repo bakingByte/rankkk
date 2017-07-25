@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController,UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource
+class NotificationViewController: UIViewController,UITextFieldDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITableViewDelegate, UITableViewDataSource,NavigationViewDelegate
 {
 
     @IBOutlet weak var trendingCollectionView: UICollectionView!
@@ -17,6 +17,9 @@ class NotificationViewController: UIViewController,UITextFieldDelegate,UICollect
     @IBOutlet weak var table_view: UITableView!
     
     var profileImages:NSArray = ["bitmap.png","bitmapCopy.png","bitmapCopy2.png","bitmapCopy3.png","bitmapCopy4.png","bitmapCopy5.png","bitmapCopy6.png","bitmapCopy7.png","bitmapCopy8.png","bitmapCopy8.png"]
+    var cancelationReson:String = ""
+    var indexPath:IndexPath = []
+    var indxNum = NSNumber()
     
     
     var postDic:NSMutableArray?
@@ -63,39 +66,39 @@ class NotificationViewController: UIViewController,UITextFieldDelegate,UICollect
         
         let cell:PostCell = tableView.dequeueReusableCell(withIdentifier: "PostC") as! PostCell
         
-        let data: Dictionary = self.postDic?.object(at: indexPath.row) as? Dictionary ?? [:]
-        //            /*
+//        let data: NSDictionary = self.postDic?.object(at: indexPath.row) as? NSDictionary ?? [:]
+        print(self.postDic ?? "")
+        let feedDic:NSDictionary = self.postDic?.object(at: indexPath.row) as? NSDictionary ?? [:]
         
-      //  "bitmap.png","bitmapCopy.png","bitmapCopy2.png","bitmapCopy3.png","bitmapCopy4.png","bitmapCopy5.png","bitmapCopy6.png","bitmapCopy7.png","bitmapCopy8.png","bitmapCopy8.png"
-        //             "id": 1,
-        //             "discription": "<p>Testing</p>\r\n",
-        //             "comment": "Nice jobs.",
-        //             "like": "1",
-        //             "dislike": "2",
-        //             "created_at": "2017-07-04 10:27:11",
-        //             "updated_at": "2017-07-21 14:51:18",
-        //             "deleted_at": null,
-        //             "title": "Testing ",
-        //             "photo": "1499164030-Screenshot_6.png",
-        //             "user_name_id": 44
-        //             */
-        //
-        cell.lblTitle.text = data["title"] as? String ?? ""
-        cell.lblDiscrobtion.text = data["title"] as? String ?? ""
-        cell.lblLikeCount.text = data["like"] as? String ?? ""
-        cell.lblDisLikeCount.text = data["dislike"] as? String ?? ""
+        cell.delegate = self
+        cell.selectionStyle = .none
+        cell.tag = indexPath.row
+        let imgName:NSString = profileImages[indexPath.row] as? NSString ?? ""
         
+        print(feedDic)
+        print(imgName)
         
-        let image = UIImage(named: profileImages[indexPath.row] as? String ?? "")
-        cell.imgPost.image = image
-        
-        cell.btnLike.addTarget(self, action: #selector(self.likeButtonAction), for: .touchUpInside)
-        
-        cell.btnDisLike.addTarget(self, action: #selector(self.DisLikeButtonAction), for: .touchUpInside)
-        
-        cell.btnComment.addTarget(self, action: #selector(self.commentButtonAction), for: .touchUpInside)
-        
-        cell.btnShare.addTarget(self, action: #selector(self.shareButtonAction), for: .touchUpInside)
+        cell.setFeedValueOnView(feedDic: feedDic, imgName: imgName)
+
+//        cell.lblTitle.text = data["title"] as? String ?? ""
+//        cell.lblDiscrobtion.text = data["title"] as? String ?? ""
+//        cell.lblLikeCount.text = data["like"] as? String ?? ""
+//        cell.lblDisLikeCount.text = data["dislike"] as? String ?? ""
+//        cell.lblCommentCount.text = data["comment"] as? String ?? ""
+//        
+//        
+//        let image = UIImage(named: profileImages[indexPath.row] as? String ?? "")
+//        cell.imgPost.image = image
+//        
+//        cell.btnLike.addTarget(self, action: #selector(self.likeButtonAction), for: .touchUpInside)
+//        
+//        
+//        cell.btnDisLike.addTarget(self, action: #selector(self.DisLikeButtonAction), for: .touchUpInside)
+//        
+//        cell.btnComment.addTarget(self, action: #selector(self.commentButtonAction), for: .touchUpInside)
+//        cell.btnComment.tag = indexPath.row
+//        
+//        cell.btnShare.addTarget(self, action: #selector(self.shareButtonAction), for: .touchUpInside)
         
 
         
@@ -120,7 +123,9 @@ class NotificationViewController: UIViewController,UITextFieldDelegate,UICollect
         print("You tapped cell number \(indexPath.row).")
         
         let secondViewController = self.storyboard?.instantiateViewController(withIdentifier: "PostDetailsVC") as! PostDetailsViewController
-        
+        secondViewController.postDetailDict = self.postDic?.object(at: indexPath.row) as? NSDictionary ?? [:]
+        secondViewController.postImageStr = profileImages[indexPath.row] as? NSString ?? ""
+            
         self.navigationController?.pushViewController(secondViewController, animated: true)
     }
 
@@ -177,9 +182,7 @@ class NotificationViewController: UIViewController,UITextFieldDelegate,UICollect
     func getDataOnServer(){
         
         AppDelegate.showPrgressHUD()
-        
-            loginDetails = ["":""]
-            print("%@",loginDetails)
+
             let manager          = WebServices()
             manager.getTypeService(withPostType: kTRIP_TRIP_POST, completionHandler: { (response, responseCode, nil) in
                 print(response ?? "")
@@ -197,23 +200,104 @@ class NotificationViewController: UIViewController,UITextFieldDelegate,UICollect
                 AppDelegate.hidePrgressHUD()
             }
         )}
-    
-    func likeButtonAction(){
-        
-    }
-    
-    func DisLikeButtonAction(){
-        
-    }
-    
-    func commentButtonAction(){
-        
-    }
-    
-    func shareButtonAction(){
-        
-    }
 
+    
+    func commentPost(_ sender: AnyObject, feedDetails: NSDictionary, index: Int) {
+        
+        print(feedDetails)
+        print(index)
+        
+        let message = "Comment"
+        //                let messageName = message + "\"" + (self.ClientName) + "\""
+        
+        let alertController = UIAlertController(title: message as String, message: "", preferredStyle: .alert)
+        
+        
+        let OkAction = UIAlertAction(title: "OK", style: .default, handler: {
+            (action : UIAlertAction!) -> Void in
+            
+            let textField = alertController.textFields![0] as UITextField
+            print(textField)
+            let commentText:NSString = textField.text! as NSString
+            
+            print(commentText)
+            self.CommentDataOnServer(feedDetails:feedDetails,commentText:commentText )
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (action : UIAlertAction!) -> Void in
+            
+            
+        })
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = ""
+            textField.textColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0)
+            
+        }
+        
+        alertController.addAction(OkAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
 
-   
+    }
+    
+    func CommentDataOnServer(feedDetails :NSDictionary, commentText: NSString){
+        
+        let post_id = feedDetails["id"] as? Int ?? 0
+        
+        loginDetails = ["user_id" :"1" ,"post_id": post_id,"comment":commentText]
+        
+        print("%@",loginDetails)
+        
+        let manager          = WebServices()
+        manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_COMMENT_POST, completionHandler: { (response, responseCode, nil) in
+            
+            print(response ?? "")
+            self.getDataOnServer()
+  
+        }
+        )}
+    
+    func likePost(_ sender: AnyObject, feedDetails: NSDictionary, index: Int) {
+        
+        let post_id = feedDetails["id"] as? Int ?? 0
+        
+        loginDetails = ["id": post_id]
+        
+        print("%@",loginDetails)
+        
+        let manager          = WebServices()
+        manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LIKE_POST, completionHandler: { (response, responseCode, nil) in
+            
+            print(response ?? "")
+//            self.getDataOnServer()
+            
+        })
+        
+    }
+    
+    
+    
+    func disLikePost(_ sender: AnyObject, feedDetails: NSDictionary, index: Int) {
+        
+        let post_id = feedDetails["id"] as? Int ?? 0
+        
+        loginDetails = ["id": post_id]
+        
+        print("%@",loginDetails)
+        
+        let manager          = WebServices()
+        manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LIKE_POST, completionHandler: { (response, responseCode, nil) in
+            
+            print(response ?? "")
+            //            self.getDataOnServer()
+            
+        })
+    }
+    
+    func sharePost(_ sender: AnyObject, feedDetails: NSDictionary, index: Int) {
+    }
+    
+    
 }

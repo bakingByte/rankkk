@@ -35,10 +35,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func btnLogin(_ sender: Any) {
         
         if isValid(){
+            
+            AppDelegate.showPrgressHUD()
                     loginDetails = ["email" :txt_username.text ?? "" ,"password":txt_password.text ?? ""]
                     print("%@",loginDetails)
                     let manager          = WebServices()
                     manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LOGIN, completionHandler: { (response, responseCode, nil) in
+                        
+                        AppDelegate.hidePrgressHUD()
+                        
                         print(response ?? "")
                         if let success = response?["success"] as? NSNumber {
                             if success == 1 {

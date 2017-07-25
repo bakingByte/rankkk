@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="qgr-Ql-s1y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pCH-JC-bej">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1118,6 +1118,7 @@
                         <outlet property="lblearnIt" destination="wqA-32-m0e" id="gUk-Jm-SeJ"/>
                         <outlet property="txt_password" destination="dk5-2L-QiG" id="3s6-dz-8Wq"/>
                         <outlet property="txt_username" destination="WpS-fN-Aab" id="2o7-BD-q6Z"/>
+                        <segue destination="Gsu-Th-EF1" kind="push" id="Ylc-7R-eDV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3J-yB-hkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1224,29 +1225,12 @@
                         <outlet property="txt_firstname" destination="58m-Ea-eTt" id="fRd-fQ-YZN"/>
                         <outlet property="txt_lastname" destination="7e5-vY-EpP" id="66z-Bs-NBc"/>
                         <outlet property="txt_password" destination="WIh-1N-oen" id="ghJ-fN-ko5"/>
+                        <segue destination="Gsu-Th-EF1" kind="push" id="dGz-G0-30Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OU6-EM-XS8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18238" y="-3098"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5ZV-6J-PRu">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="qgr-Ql-s1y" sceneMemberID="viewController">
-                    <nil key="simulatedStatusBarMetrics"/>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v5J-ag-ep7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Gsu-Th-EF1" kind="relationship" relationship="rootViewController" id="Gj5-1V-Iyj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="roe-Fc-3yC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="18951" y="-2716"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="GbC-gu-TlP">
@@ -2106,7 +2090,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QiI-VK-hQp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19649" y="-2716"/>
+            <point key="canvasLocation" x="17484" y="-2355"/>
         </scene>
         <!--Post Details View Controller-->
         <scene sceneID="cvM-uh-M9I">
@@ -2130,11 +2114,17 @@
                                         <rect key="frame" x="10" y="17" width="22" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="up.png"/>
+                                        <connections>
+                                            <action selector="btnLikeButtonAction:" destination="ctg-Io-fLr" eventType="touchUpInside" id="ZMX-ow-QZX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6B-zi-CfH">
                                         <rect key="frame" x="84" y="17" width="22" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="down.png"/>
+                                        <connections>
+                                            <action selector="btnDisLikeButtonAction:" destination="ctg-Io-fLr" eventType="touchUpInside" id="72A-Dp-f3n"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="240" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c58-gF-UXr">
                                         <rect key="frame" x="40" y="15" width="42" height="21"/>
@@ -2151,22 +2141,35 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFI-dV-lSy">
-                                        <rect key="frame" x="226" y="14" width="22" height="22"/>
+                                        <rect key="frame" x="196" y="13" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="comment.png"/>
+                                        <connections>
+                                            <action selector="btnCommentButtonAction:" destination="ctg-Io-fLr" eventType="touchUpInside" id="52m-Wi-kxU"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4x4-Gy-D1t">
                                         <rect key="frame" x="259" y="14" width="22" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="share.png"/>
+                                        <connections>
+                                            <action selector="tbnShareButtonAction:" destination="ctg-Io-fLr" eventType="touchUpInside" id="jMt-Df-Wca"/>
+                                        </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="27" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNj-m1-lbF">
+                                        <rect key="frame" x="221" y="13" width="38" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ZfH-E5-8Gr"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user402X.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jyl-q0-0Fl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="Jyl-q0-0Fl">
                                 <rect key="frame" x="16" y="599" width="46" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Xw6-RV-cEJ"/>
@@ -2239,6 +2242,13 @@
                             <constraint firstItem="sXV-Jt-EyU" firstAttribute="leading" secondItem="2sl-HH-OK8" secondAttribute="leading" constant="9" id="wsO-FQ-Pqz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgBackgroundPost" destination="Ybm-J6-ypN" id="71R-xt-hGj"/>
+                        <outlet property="lblCommentCount" destination="cNj-m1-lbF" id="OWe-UM-eRF"/>
+                        <outlet property="lblDisLikeCount" destination="u7j-VX-4uF" id="IIH-QV-Kcp"/>
+                        <outlet property="lblLikeCount" destination="c58-gF-UXr" id="ZDW-X0-fWf"/>
+                        <outlet property="lblTitle" destination="YRJ-vP-68Q" id="uNu-xj-Qbb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QJv-oI-ZNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2367,8 +2377,10 @@
         <image name="twitter.png" width="60" height="60"/>
         <image name="up.png" width="180" height="180"/>
         <image name="user1402x.png" width="80" height="80"/>
-        <image name="user402X.png" width="80" height="80"/>
         <image name="video.png" width="720" height="552"/>
         <image name="world1x-(1).png" width="128" height="46"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dGz-G0-30Y"/>
+    </inferredMetricsTieBreakers>
 </document>
