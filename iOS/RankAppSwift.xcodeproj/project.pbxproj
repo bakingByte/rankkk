@@ -147,6 +147,7 @@
 		00768DA71F23BA490067725C /* bitmapCopy8.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D8C1F23BA490067725C /* bitmapCopy8.png */; };
 		00768DA81F23BA490067725C /* bitmapCopy8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D8D1F23BA490067725C /* bitmapCopy8@2x.png */; };
 		00768DA91F23BA490067725C /* bitmapCopy8@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D8E1F23BA490067725C /* bitmapCopy8@3x.png */; };
+		00768DAC1F24D1480067725C /* NavigationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00768DAB1F24D1480067725C /* NavigationViewDelegate.swift */; };
 		00A0E9CA1EFE9845002C8EEC /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0E9C91EFE9845002C8EEC /* CommonClass.swift */; };
 		00A0E9CC1EFE98BC002C8EEC /* ShowNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0E9CB1EFE98BC002C8EEC /* ShowNotificationView.swift */; };
 		00A0E9CF1EFE995C002C8EEC /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0E9CE1EFE995C002C8EEC /* WebServices.swift */; };
@@ -352,6 +353,7 @@
 		00768D8C1F23BA490067725C /* bitmapCopy8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapCopy8.png; sourceTree = "<group>"; };
 		00768D8D1F23BA490067725C /* bitmapCopy8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy8@2x.png"; sourceTree = "<group>"; };
 		00768D8E1F23BA490067725C /* bitmapCopy8@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy8@3x.png"; sourceTree = "<group>"; };
+		00768DAB1F24D1480067725C /* NavigationViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewDelegate.swift; sourceTree = "<group>"; };
 		00A0E9C91EFE9845002C8EEC /* CommonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
 		00A0E9CB1EFE98BC002C8EEC /* ShowNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowNotificationView.swift; sourceTree = "<group>"; };
 		00A0E9CE1EFE995C002C8EEC /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
@@ -686,9 +688,18 @@
 			path = postImages;
 			sourceTree = "<group>";
 		};
+		00768DAA1F24D1210067725C /* NavigationViewDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				00768DAB1F24D1480067725C /* NavigationViewDelegate.swift */,
+			);
+			path = NavigationViewDelegate;
+			sourceTree = "<group>";
+		};
 		00A0E9CD1EFE990C002C8EEC /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				00768DAA1F24D1210067725C /* NavigationViewDelegate */,
 				00768D3D1F23B9C70067725C /* bitmap.png */,
 				00768D3E1F23B9C70067725C /* bitmap@2x.png */,
 				00768D3F1F23B9C70067725C /* bitmap@3x.png */,
@@ -1162,6 +1173,7 @@
 				00768D161F17DB270067725C /* DashboardPostCollectionViewCell.swift in Sources */,
 				00768D081F17DB270067725C /* ChatVC.swift in Sources */,
 				00768D0D1F17DB270067725C /* GlobeViewController.swift in Sources */,
+				00768DAC1F24D1480067725C /* NavigationViewDelegate.swift in Sources */,
 				FA3919131EF294A800B0D065 /* AppDelegate.swift in Sources */,
 				00768D3A1F2377C30067725C /* PostCell.swift in Sources */,
 			);
