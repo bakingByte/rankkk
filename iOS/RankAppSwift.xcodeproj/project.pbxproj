@@ -21,14 +21,6 @@
 		00768A031F10F6BC0067725C /* id-card.png in Resources */ = {isa = PBXBuildFile; fileRef = 007689F81F10F6BC0067725C /* id-card.png */; };
 		00768A041F10F6BC0067725C /* user (2)-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 007689F91F10F6BC0067725C /* user (2)-1.png */; };
 		00768A051F10F6BC0067725C /* user (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 007689FA1F10F6BC0067725C /* user (2).png */; };
-		00768B9C1F17D96E0067725C /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B931F17D96E0067725C /* 1.png */; };
-		00768B9D1F17D96E0067725C /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B941F17D96E0067725C /* 2.png */; };
-		00768B9E1F17D96E0067725C /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B951F17D96E0067725C /* 3.png */; };
-		00768B9F1F17D96E0067725C /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B961F17D96E0067725C /* 4.png */; };
-		00768BA01F17D96E0067725C /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B971F17D96E0067725C /* 5.png */; };
-		00768BA11F17D96E0067725C /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B981F17D96E0067725C /* 6.png */; };
-		00768BA21F17D96E0067725C /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B991F17D96E0067725C /* 7.png */; };
-		00768BA31F17D96E0067725C /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768B9A1F17D96E0067725C /* 8.png */; };
 		00768BAD1F17D97A0067725C /* add401x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768BA61F17D97A0067725C /* add401x.png */; };
 		00768BAE1F17D97A0067725C /* add402x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768BA71F17D97A0067725C /* add402x.png */; };
 		00768BAF1F17D97A0067725C /* back401x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768BA81F17D97A0067725C /* back401x.png */; };
@@ -100,8 +92,6 @@
 		00768D5C1F23B9C70067725C /* bitmapCopy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D411F23B9C70067725C /* bitmapCopy@2x.png */; };
 		00768D5D1F23B9C70067725C /* bitmapCopy@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D421F23B9C70067725C /* bitmapCopy@3x.png */; };
 		00768D5E1F23B9C70067725C /* bitmapCopy2.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D431F23B9C70067725C /* bitmapCopy2.png */; };
-		00768D5F1F23B9C70067725C /* bitmapCopy2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D441F23B9C70067725C /* bitmapCopy2@2x.png */; };
-		00768D601F23B9C70067725C /* bitmapCopy2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D451F23B9C70067725C /* bitmapCopy2@3x.png */; };
 		00768D611F23B9C70067725C /* bitmapCopy3.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D461F23B9C70067725C /* bitmapCopy3.png */; };
 		00768D621F23B9C70067725C /* bitmapCopy3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D471F23B9C70067725C /* bitmapCopy3@2x.png */; };
 		00768D631F23B9C70067725C /* bitmapCopy3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00768D481F23B9C70067725C /* bitmapCopy3@3x.png */; };
@@ -227,14 +217,6 @@
 		007689F81F10F6BC0067725C /* id-card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "id-card.png"; sourceTree = "<group>"; };
 		007689F91F10F6BC0067725C /* user (2)-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user (2)-1.png"; sourceTree = "<group>"; };
 		007689FA1F10F6BC0067725C /* user (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user (2).png"; sourceTree = "<group>"; };
-		00768B931F17D96E0067725C /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		00768B941F17D96E0067725C /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		00768B951F17D96E0067725C /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
-		00768B961F17D96E0067725C /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
-		00768B971F17D96E0067725C /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
-		00768B981F17D96E0067725C /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
-		00768B991F17D96E0067725C /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
-		00768B9A1F17D96E0067725C /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
 		00768BA61F17D97A0067725C /* add401x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add401x.png; sourceTree = "<group>"; };
 		00768BA71F17D97A0067725C /* add402x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add402x.png; sourceTree = "<group>"; };
 		00768BA81F17D97A0067725C /* back401x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back401x.png; sourceTree = "<group>"; };
@@ -306,8 +288,6 @@
 		00768D411F23B9C70067725C /* bitmapCopy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy@2x.png"; sourceTree = "<group>"; };
 		00768D421F23B9C70067725C /* bitmapCopy@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy@3x.png"; sourceTree = "<group>"; };
 		00768D431F23B9C70067725C /* bitmapCopy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapCopy2.png; sourceTree = "<group>"; };
-		00768D441F23B9C70067725C /* bitmapCopy2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy2@2x.png"; sourceTree = "<group>"; };
-		00768D451F23B9C70067725C /* bitmapCopy2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy2@3x.png"; sourceTree = "<group>"; };
 		00768D461F23B9C70067725C /* bitmapCopy3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapCopy3.png; sourceTree = "<group>"; };
 		00768D471F23B9C70067725C /* bitmapCopy3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy3@2x.png"; sourceTree = "<group>"; };
 		00768D481F23B9C70067725C /* bitmapCopy3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapCopy3@3x.png"; sourceTree = "<group>"; };
@@ -485,14 +465,6 @@
 		00768B9B1F17D96E0067725C /* Communities */ = {
 			isa = PBXGroup;
 			children = (
-				00768B931F17D96E0067725C /* 1.png */,
-				00768B941F17D96E0067725C /* 2.png */,
-				00768B951F17D96E0067725C /* 3.png */,
-				00768B961F17D96E0067725C /* 4.png */,
-				00768B971F17D96E0067725C /* 5.png */,
-				00768B981F17D96E0067725C /* 6.png */,
-				00768B991F17D96E0067725C /* 7.png */,
-				00768B9A1F17D96E0067725C /* 8.png */,
 			);
 			name = Communities;
 			path = "../../../../../../../Downloads/Rank 2/RankAppSwift/Communities";
@@ -707,8 +679,6 @@
 				00768D411F23B9C70067725C /* bitmapCopy@2x.png */,
 				00768D421F23B9C70067725C /* bitmapCopy@3x.png */,
 				00768D431F23B9C70067725C /* bitmapCopy2.png */,
-				00768D441F23B9C70067725C /* bitmapCopy2@2x.png */,
-				00768D451F23B9C70067725C /* bitmapCopy2@3x.png */,
 				00768D461F23B9C70067725C /* bitmapCopy3.png */,
 				00768D471F23B9C70067725C /* bitmapCopy3@2x.png */,
 				00768D481F23B9C70067725C /* bitmapCopy3@3x.png */,
@@ -932,7 +902,6 @@
 				00768D6C1F23B9C70067725C /* bitmapCopy6@3x.png in Resources */,
 				00768D261F1930500067725C /* box292x.png in Resources */,
 				FA39196F1EF2961F00B0D065 /* Icon-App-40x40@3x.png in Resources */,
-				00768BA01F17D96E0067725C /* 5.png in Resources */,
 				FA3919591EF2961F00B0D065 /* searcg.png in Resources */,
 				00768D9F1F23BA490067725C /* bitmapCopy5@2x.png in Resources */,
 				FA3919681EF2961F00B0D065 /* Icon-App-20x20@2x.png in Resources */,
@@ -942,11 +911,9 @@
 				00768D2C1F19311A0067725C /* share.png in Resources */,
 				00768D721F23B9C70067725C /* bitmapCopy8@3x.png in Resources */,
 				007689FB1F10F6BC0067725C /* bell-icon-16613.png in Resources */,
-				00768BA11F17D96E0067725C /* 6.png in Resources */,
 				00768BD41F17D98A0067725C /* hide.png in Resources */,
 				00768D9B1F23BA490067725C /* bitmapCopy4.png in Resources */,
 				FA39196C1EF2961F00B0D065 /* Icon-App-29x29@3x.png in Resources */,
-				00768B9C1F17D96E0067725C /* 1.png in Resources */,
 				007689FF1F10F6BC0067725C /* bell-icon-16640.jpg in Resources */,
 				00768D1E1F1925470067725C /* video.png in Resources */,
 				FA3919711EF2961F00B0D065 /* Icon-App-57x57@2x.png in Resources */,
@@ -962,7 +929,6 @@
 				00768DA51F23BA490067725C /* bitmapCopy7@2x.png in Resources */,
 				00768D6E1F23B9C70067725C /* bitmapCopy7@2x.png in Resources */,
 				00768D6D1F23B9C70067725C /* bitmapCopy7.png in Resources */,
-				00768BA21F17D96E0067725C /* 7.png in Resources */,
 				FA3919721EF2961F00B0D065 /* Icon-App-60x60@1x.png in Resources */,
 				FA3919561EF2961F00B0D065 /* Salman.png in Resources */,
 				00768BB11F17D97A0067725C /* search401x.png in Resources */,
@@ -991,7 +957,6 @@
 				00768D6B1F23B9C70067725C /* bitmapCopy6@2x.png in Resources */,
 				00768BCA1F17D9820067725C /* user1402x.png in Resources */,
 				00768D611F23B9C70067725C /* bitmapCopy3.png in Resources */,
-				00768D601F23B9C70067725C /* bitmapCopy2@3x.png in Resources */,
 				FA3919551EF2961F00B0D065 /* images.jpeg in Resources */,
 				00768D681F23B9C70067725C /* bitmapCopy5@2x.png in Resources */,
 				FA3919531EF2961F00B0D065 /* rImage.png in Resources */,
@@ -999,7 +964,6 @@
 				FA39195F1EF2961F00B0D065 /* bg-1.png in Resources */,
 				00768D6F1F23B9C70067725C /* bitmapCopy7@3x.png in Resources */,
 				007689FE1F10F6BC0067725C /* bell-icon-16639.jpg in Resources */,
-				00768B9E1F17D96E0067725C /* 3.png in Resources */,
 				00768CF21F17DA000067725C /* state1x-(1).png in Resources */,
 				00768D661F23B9C70067725C /* bitmapCopy4@3x.png in Resources */,
 				FA3919521EF2961F00B0D065 /* left-arrow (1).png in Resources */,
@@ -1010,7 +974,6 @@
 				FA3919751EF2961F00B0D065 /* Icon-App-72x72@1x.png in Resources */,
 				00768A031F10F6BC0067725C /* id-card.png in Resources */,
 				00768D5E1F23B9C70067725C /* bitmapCopy2.png in Resources */,
-				00768D5F1F23B9C70067725C /* bitmapCopy2@2x.png in Resources */,
 				00768D641F23B9C70067725C /* bitmapCopy4.png in Resources */,
 				00768D581F23B9C70067725C /* bitmap.png in Resources */,
 				FA39196E1EF2961F00B0D065 /* Icon-App-40x40@2x.png in Resources */,
@@ -1046,15 +1009,12 @@
 				00768A001F10F6BC0067725C /* bell-icon-16641.jpg in Resources */,
 				FA39197C1EF2961F00B0D065 /* Icon-Small-50x50@2x.png in Resources */,
 				FA3919701EF2961F00B0D065 /* Icon-App-57x57@1x.png in Resources */,
-				00768B9F1F17D96E0067725C /* 4.png in Resources */,
 				00768A041F10F6BC0067725C /* user (2)-1.png in Resources */,
 				00768BB01F17D97A0067725C /* profile image.png in Resources */,
 				00768DA61F23BA490067725C /* bitmapCopy7@3x.png in Resources */,
-				00768B9D1F17D96E0067725C /* 2.png in Resources */,
 				FA5CC2B11EF3DD1900864A8B /* Globe1.png in Resources */,
 				FA3919621EF2961F00B0D065 /* google.png in Resources */,
 				00768D9E1F23BA490067725C /* bitmapCopy5.png in Resources */,
-				00768BA31F17D96E0067725C /* 8.png in Resources */,
 				00768D5A1F23B9C70067725C /* bitmap@3x.png in Resources */,
 				FA3919791EF2961F00B0D065 /* Icon-App-76x76@3x.png in Resources */,
 				FA39197B1EF2961F00B0D065 /* Icon-Small-50x50@1x.png in Resources */,
@@ -1135,7 +1095,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1233,7 +1193,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1276,7 +1236,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1295,12 +1255,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RankAppSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.megainfomatic.RankAppSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/SantoshMaurya/Desktop/Ajeet iOS/ajeet/MyTrip/Rank/RankAppSwift/RankAppSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/algoworkstrainee2/Documents/apps/BakingByte/rankkk/iOS/RankAppSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1316,12 +1276,12 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = RankAppSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.megainfomatic.RankAppSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/SantoshMaurya/Desktop/Ajeet iOS/ajeet/MyTrip/Rank/RankAppSwift/RankAppSwift-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/algoworkstrainee2/Documents/apps/BakingByte/rankkk/iOS/RankAppSwift-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
