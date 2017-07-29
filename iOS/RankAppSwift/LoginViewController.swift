@@ -22,6 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var facebookLastName : String = ""
     var facebookURLImage : String = ""
     var facebookData : NSDictionary = [:]
+    var loginData = Login()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,10 +44,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LOGIN, completionHandler: { (response, responseCode, nil) in
                         
                         AppDelegate.hidePrgressHUD()
-                        
                         print(response ?? "")
                         if let success = response?["success"] as? NSNumber {
                             if success == 1 {
+                                
+                                appDelegate.mainDic = response ?? [:]
+                
+                self.loginData.name = response?.value(forKey: "name") as? NSString ?? ""
+
+                                
+//            // setting a value for a key
+//            let newPerson = login(name: "Joe", age: 10)
+//            var people = [login]()
+//            people.append(newPerson)
+//            let encodedData = NSKeyedArchiver.archivedData(withRootObject: people)
+//            UserDefaults.standard.set(encodedData, forKey: "people")
+//            
+//            // retrieving a value for a key
+//            if let data = UserDefaults.standard.data(forKey: "people"),
+//                let myPeopleList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [login] {
+//                myPeopleList.forEach({print( $0.name, $0.age)})  // Joe 10
+//            } else {
+//                print("There is an issue")
+//            }
+                                
+                                
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
             self.navigationController?.pushViewController(nextViewController, animated: true)
@@ -149,6 +171,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
      FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
      if (error == nil){
      if let result = result as? NSDictionary{
+        
+        print(result)
      
      if let val = result["email"] as? String{
      // now val is not nil and the Optional has been unwrapped, so use it

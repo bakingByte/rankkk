@@ -25,6 +25,4 @@ let kTRIP_TRIP_POST:String = "/trip_post"
 let kTRIP_COMMENT_POST:String = "/trip_post/comments/store"
 let kTRIP_LIKE_POST:String = "/trip_like/1?id=30"
 let kTRIP_DISLIKE_POST:String = "/trip_dislike/1?id=30"
-
-
 //http://13.126.211.132/trip_login?email=c.a.r@projectsadda.in&amp;password=prakash
