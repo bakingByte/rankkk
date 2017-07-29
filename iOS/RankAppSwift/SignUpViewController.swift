@@ -28,19 +28,9 @@ class SignUpViewController: UIViewController {
             
             AppDelegate.showPrgressHUD()
             
-            loginDetails = ["password_confirmation" :txt_password.text ?? "" ,"lastname":txt_lastname.text ?? "","firstname":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_id": "wqwqwqwqwqwq","device_type": "I","device_token": "hjsaghsahhs", "channel":"APP"]
+//            loginDetails = ["password_confirmation" :txt_password.text ?? "","lastname":txt_lastname.text ?? "","firstname":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_id": "wqwqwqwqwqwq","device_type": "I","device_token": "hjsaghsahhs","channel":"APP"]
             
-            print("%@",loginDetails)
-            
-            /*
-             "device_id": "wqwqwqwqwqwq",
-             "device_type": "I",
-             "device_token": "hjsaghsahhs",
-             “firstname”:”santosh”
-             “lastname”:”maurya”,
-             "channel"=APP   
-
-             */
+            loginDetails = ["password_confirmation" :txt_password.text ?? "","name":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","identity": "admin","date_of_birth": "11/07/1991","channel":"APP"]
             
             print("%@",loginDetails)
             
@@ -61,7 +51,9 @@ class SignUpViewController: UIViewController {
 //                self.navigationController?.present(nextViewController, animated: true, completion: nil)
                 
             }
+               
             )}
+        AppDelegate.hidePrgressHUD()
     }
     
     // Velidation from all text fields
