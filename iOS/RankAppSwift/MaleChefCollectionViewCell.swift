@@ -10,6 +10,8 @@ import UIKit
 
 class MaleChefCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var chefImageBtn: UIButton!
+    //@IBOutlet weak var chefImageBtn: UIButton!
+    
     @IBOutlet weak var chefNameLbl: UILabel!
+    @IBOutlet weak var imgMale: UIImageView!
 }

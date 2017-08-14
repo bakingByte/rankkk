@@ -4,17 +4,19 @@
 //
 //  Created by mohammad shiblee on 07/07/17.
 //  Copyright © 2017 MegaInfomatic. All rights reserved.
-//
+//  c7d02fb1-70b1-481b-bccf-e627cdb2149d.png
 
 import UIKit
 
 class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var personImagesArray=["user1402x.png","user2402x.png","user3402x.png","user2402x.png","user3402x.png","user4402x.png"]
+    
+    var personImagesArray=["c7d02fb1-70b1-481b-bccf-e627cdb2149d.png","c7d02fb1-70b1-481b-bccf-e627cdb2149d.png","c7d02fb1-70b1-481b-bccf-e627cdb2149d.png","c7d02fb1-70b1-481b-bccf-e627cdb2149d.png","c7d02fb1-70b1-481b-bccf-e627cdb2149d.png","c7d02fb1-70b1-481b-bccf-e627cdb2149d.png"]
     var namesArray=["Kanha Pal","Afak Rahman Ash","Gra Ndy","Gra Ndy","KP Goutham","Arman Singh"]
     var messagesArray=["Get engineering books on rent for Gujarat only contact no 9974792746","Nice one","Fallow me","Awesome","I believe in Cloudflare","Nice Bro"]
-
+    var dateTime=["Thu at 3:03PM", "May 20 at 8:43PM","Thu at 3:03PM","May 20 at 8:43PM","Thu at 3:03PM","May 20 at 8:43PM"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +53,7 @@ class CommentViewController: UIViewController,UITableViewDelegate, UITableViewDa
         cell.personImgView.image = UIImage(named: (personImagesArray[indexPath.row]))
         cell.nameLbl.text = namesArray[indexPath.row]
         cell.messageLbl.text=messagesArray[indexPath.row]
+        cell.dateTimeLbl.text=dateTime[indexPath.row]
         
         return cell
     }
