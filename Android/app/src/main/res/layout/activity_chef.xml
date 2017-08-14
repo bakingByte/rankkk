@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.rank.activity.Chef"
+    android:background="#eaeaea">
+
+
+    <TextView
+        android:id="@+id/tv_chef"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_35sdp"
+        android:text="Chef"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:paddingTop="@dimen/_5sdp"
+        android:textSize="@dimen/_20sdp"
+        android:background="#574d68"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:background="@drawable/profile_back"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_below="@+id/tv_chef"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:background="@drawable/chef"
+                android:id="@+id/iv_chef"/>
+            <RelativeLayout
+                android:id="@+id/rl_button"
+                android:layout_below="@+id/iv_chef"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp">
+
+                <TextView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/world1"
+                    android:text="WORLD"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:id="@+id/tv_world"
+                    />
+                <TextView
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_toRightOf="@+id/tv_world"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/country1"
+                    android:text="COUNTRY"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:id="@+id/tv_country"
+                    />
+                <TextView
+                    android:layout_marginLeft="@dimen/_1sdp"
+                    android:layout_toRightOf="@+id/tv_country"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/state"
+                    android:text="CITY"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/black"
+                    android:textAlignment="center"
+                    android:paddingTop="@dimen/_10sdp"
+                    android:id="@+id/tv_city"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_below="@+id/rl_button"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male "
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
+                android:id="@+id/tv_maleChef"/>
+
+            <android.support.v4.view.ViewPager
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_below="@+id/tv_maleChef"
+                android:id="@+id/myviewpager"
+                android:layout_width="wrap_content"
+                android:overScrollMode="never"
+                android:layout_height="@dimen/_100sdp"
+                android:paddingRight="@dimen/_10sdp"
+
+                />
+
+            <TextView
+                android:layout_below="@+id/myviewpager"
+                android:text="Female "
+                android:textColor="@color/black"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:textSize="@dimen/_14sdp"
+                android:id="@+id/tv_femaleChef"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <android.support.v4.view.ViewPager
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_below="@+id/tv_femaleChef"
+                android:id="@+id/femaleviewpager"
+                android:layout_width="wrap_content"
+                android:overScrollMode="never"
+                android:layout_height="@dimen/_100sdp"
+                android:paddingRight="@dimen/_10sdp"
+
+                />
+
+            <ListView
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_45sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_below="@+id/femaleviewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/listview"/>
+
+          <com.rank.helper.ExpandableHeightGridView
+                android:layout_below="@+id/femaleviewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/gridview"
+                android:gravity="center"
+                android:verticalSpacing="@dimen/_minus38sdp"
+                android:horizontalSpacing="@dimen/_1sdp"
+                android:columnWidth="@dimen/_120sdp"
+                android:numColumns="3"
+                android:stretchMode="columnWidth"
+              android:layout_marginBottom="@dimen/_50sdp"
+                />
+
+        </RelativeLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/rl_footer"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:background="@drawable/globe"
+                android:id="@+id/iv_globe"/>
+
+            <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_53sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:id="@+id/iv_location"
+                android:background="@drawable/location_selected"/>
+
+            <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_53sdp"
+                android:layout_width="@dimen/_23sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:id="@+id/iv_file"
+                android:background="@drawable/file_unselected"/>
+
+            <ImageView
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_53sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:id="@+id/iv_human"
+                android:background="@drawable/human"/>
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

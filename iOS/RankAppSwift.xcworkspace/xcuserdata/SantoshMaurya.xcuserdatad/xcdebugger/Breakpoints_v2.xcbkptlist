@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "commentPost(_:feedDetails:index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "commentPost(_:feedDetails:index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/DashboardPostCollectionViewCell.swift"
+            timestampString = "524332305.082225"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "btnCommentButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/DashboardPostCollectionViewCell.swift"
+            timestampString = "524332861.891176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "btnDisLikeButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/DashboardPostCollectionViewCell.swift"
+            timestampString = "524332864.478055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "btnLikeButtonAction(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "likePost(_:feedDetails:index:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "244"
+            endingLineNumber = "244"
+            landmarkName = "likePost(_:feedDetails:index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.likePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.515863"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.(likePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()).(implicit closure #1)"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.520053"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "231"
+                  endingLineNumber = "231"
+                  offsetFromSymbolStart = "10">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "likePost(_:feedDetails:index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.likePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.528412"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.(likePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()).(closure #1)"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.532371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "240"
+                  endingLineNumber = "240"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "disLikePost(_:feedDetails:index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.542027"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.(disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()).(implicit closure #1)"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.545615"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "251"
+                  endingLineNumber = "251"
+                  offsetFromSymbolStart = "10">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "disLikePost(_:feedDetails:index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.553988"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "1344">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.(disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()).(closure #1)"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.557902"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "260"
+                  endingLineNumber = "260"
+                  offsetFromSymbolStart = "30">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RankAppSwift/NotificationViewController.swift"
+            timestampString = "524428048.857846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "disLikePost(_:feedDetails:index:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.56569"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "1603">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RankAppSwift.NotificationViewController.(disLikePost (Swift.AnyObject, feedDetails : __ObjC.NSDictionary, index : Swift.Int) -&gt; ()).(closure #1)"
+                  moduleName = "RankAppSwift"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/SantoshMaurya/Desktop/Ajeet%20iOS/ajeet/MyTrip/NewRankAppProject/RankApp/RankAppSwift/NotificationViewController.swift"
+                  timestampString = "524427473.569233"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "574">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rrLanguage">
+
+        <LinearLayout
+            android:background="@color/green"
+            android:id="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="English"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/_13sdp"
+                android:textColor="@color/black"
+                android:id="@+id/tvLanguageList"/>
+            <ImageView
+                android:id="@+id/Radiobutton"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:layout_marginLeft="@dimen/_140sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/checkbox"
+                android:visibility="visible"/>
+
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_below="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_5sdp"
+            android:background="@color/white"/>
+    </RelativeLayout>
+</RelativeLayout>
