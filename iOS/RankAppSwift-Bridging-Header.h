@@ -15,5 +15,4 @@
 #import <TwitterKit/Twitter.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
-
 #endif /* RankAppSwift_Bridging_Header_h */

@@ -9,86 +9,38 @@
 import UIKit
 import IQKeyboardManagerSwift
 
-class PostToRankViewController: UIViewController {
-
-     @IBOutlet weak var txtView: UITextView!
+class PostToRankViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-    
-//        txtView.text = "Write few words"
-//        txtView.textColor = UIColor.lightGray
-//        txtView.becomeFirstResponder()
-//        
-//        txtView.selectedTextRange = txtView.textRange(from: txtView.beginningOfDocument, to: txtView.beginningOfDocument)
-//        
-//        txtView.layer.borderWidth = 1
-//       // txtView.layer.borderColor = UIColor(red:222/255.0, green:225/255.0, blue:227/255.0, alpha: 1.0).cgColor
-//        
-//         txtView!.layer.borderColor = UIColor.green.cgColor
-//        
-//    // 5f9621
-        
-      
-//    }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//    // text view
-//    
-//    private func textViewDidBeginEditing(_ textView: UITextView) {
-//        if txtView.textColor == UIColor.lightGray {
-//            txtView.text = nil
-//            txtView.textColor = UIColor.black
-//        }
-//    }
-//    
-//    private func textViewDidEndEditing(_ textView: UITextView) {
-//        if txtView.text.isEmpty
-//        {
-//            txtView.text = "Write few words"
-//            txtView.textColor = UIColor.lightGray
-//        }
-//    }
-    
+//    var imageCropVC : RSKImageCropViewController!
+//    var refreshControl: UIRefreshControl!
+    var imagePickerView = UIImagePickerController()
+    @IBOutlet weak var txtView: UITextView!
     var imageArray = NSMutableArray()
     var stylist_id = NSNumber()
     var postImage:UIImage!
 //    weak var delegate : PostVCDelegate?
-    
     var spaceValidation:String = ""
     
     @IBOutlet weak var showPostImgView: UIButton!
-    
     @IBOutlet weak var imgView: UIImageView!
-    
     @IBOutlet weak var txt_description: UITextField!
     
-    @IBOutlet weak var postIndicator: UIActivityIndicatorView!
-    
+//    @IBOutlet weak var postIndicator: UIActivityIndicatorView!
     @IBOutlet weak var backBtn: UIButton!
-    
     @IBOutlet weak var postBtn: UIButton!
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        postIndicator.isHidden = true
+//        postIndicator.isHidden = true
         
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
         IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
         IQKeyboardManager.sharedManager().shouldHidePreviousNext = false
         
-        imgView.image = postImage
-        imageArray.add(postImage)
+//        imgView.image = postImage
+//        imageArray.add(postImage)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -98,13 +50,54 @@ class PostToRankViewController: UIViewController {
         view.endEditing(true)
     }
     
-    
     @IBAction func backBtnAction(_ sender: Any) {
         
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func postButtonSelectionAction(_ sender: Any) {
+    @IBAction func addGallaryOrVideoSelectionAction(_ sender: Any) {
+        
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let addAlertAction: UIAlertAction = UIAlertAction(title: "Gallery", style: .default) { action -> Void in
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+                self.imagePickerView.delegate = self
+                self.imagePickerView.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+                self.imagePickerView.allowsEditing = false
+                self.imagePickerView.navigationBar.isTranslucent = false
+                //  self.imagePickerView.navigationBar.tintColor = .black
+                //  self.imagePickerView.navigationBar.barTintColor = .black
+                
+                //                self.imagePickerView.navigationBar.barTintColor = .black // Background color
+                //                self.imagePickerView.navigationBar.tintColor = UIColor.white // Cancel button ~ any UITabBarButton items
+                //                self.imagePickerView.navigationBar.titleTextAttributes = [
+                //                    NSForegroundColorAttributeName : UIColor.white
+                //                ]
+                UIApplication.shared.statusBarStyle = .default
+                self.present(self.imagePickerView, animated: true, completion: nil)
+                
+            }
+        }
+        
+        let alertAction: UIAlertAction = UIAlertAction(title: "Camera", style: .default) { action -> Void in
+            print("Camera")
+            
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+                self.imagePickerView.delegate = self
+                self.imagePickerView.sourceType = UIImagePickerControllerSourceType.camera;
+                self.imagePickerView.allowsEditing = false
+                self.present(self.imagePickerView, animated: true, completion: nil)
+            }
+        }
+        
+        let cancelActionButton: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+            print("Cancel")
+        }
+        
+        controller.addAction(addAlertAction)
+        controller.addAction(alertAction)
+        controller.addAction(cancelActionButton)
+        present(controller, animated: true, completion: nil)
         
     }
     
@@ -124,28 +117,29 @@ class PostToRankViewController: UIViewController {
     
     func setImageWithDescreptionOnServer(){
         
-        postIndicator.isHidden = false
-        postIndicator.startAnimating()
-        postBtn.isEnabled = false
-        postBtn.setTitle("", for: .normal)
-        backBtn.isEnabled = false
-        txt_description.isEnabled = false
+//        postIndicator.isHidden = false
+//        postIndicator.startAnimating()
+//        postBtn.isEnabled = false
+//        postBtn.setTitle("", for: .normal)
+//        backBtn.isEnabled = false
+//        txt_description.isEnabled = false
         
         
 //        if let mainData = appDelegate.loginDict {
 //            stylist_id = mainData["stylist_id"] as? NSNumber ?? 0
 //        }
-        let detailsDict: NSDictionary! = ["stylist_id":stylist_id,"desc":txt_description.text ?? "","imagePathKey":"image" ]
+        let detailsDict: NSDictionary! = ["user_name_id":44,"description":txtView.text ?? "","title": txt_description.text ?? "","imagePathKey":"image" ]
+        print(imageArray)
         
         let manager          = WebServices()
-        manager.postToServerWithData1(dict_Parameters: detailsDict, withPostType: kADD_POST, andImages: imageArray, completionHandler: { (response, responseCode, nil) in
+        manager.postToServerWithData(dict_Parameters: detailsDict, withPostType: kADD_POST, andImages: imageArray, completionHandler: { (response, responseCode, nil) in
             
             if (responseCode?.intValue == 200 ){
 //                self.delegate?.uploadCompleted()
-                self.postIndicator.stopAnimating()
+//                self.postIndicator.stopAnimating()
                 self.txt_description.text = nil
                 self.view .endEditing(true)
-                self.postIndicator.isHidden = true
+//                self.postIndicator.isHidden = true
                 self.postBtn.isEnabled = true
                 self.postBtn.setTitle("Post", for: .normal)
                 self.backBtn.isEnabled = true
@@ -153,10 +147,10 @@ class PostToRankViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                 
             }else if (responseCode?.intValue == 100 ){
-                self.postIndicator.stopAnimating()
+//                self.postIndicator.stopAnimating()
                 self.txt_description.text = nil
                 self.view .endEditing(true)
-                self.postIndicator.isHidden = true
+//                self.postIndicator.isHidden = true
                 self.postBtn.isEnabled = true
                 self.postBtn.setTitle("Post", for: .normal)
                 self.backBtn.isEnabled = true
@@ -164,10 +158,10 @@ class PostToRankViewController: UIViewController {
             }else if (responseCode?.intValue == 10){
                 
                 appDelegate.showPopup(Title: "Oops", Message: "The request timed out.", Self: self)
-                self.postIndicator.stopAnimating()
+//                self.postIndicator.stopAnimating()
                 //                self.txt_description.text = nil
                 self.view .endEditing(true)
-                self.postIndicator.isHidden = true
+//                self.postIndicator.isHidden = true
                 self.postBtn.isEnabled = true
                 self.postBtn.setTitle("Post", for: .normal)
                 self.backBtn.isEnabled = true
@@ -212,6 +206,111 @@ class PostToRankViewController: UIViewController {
         present(controller, animated: true, completion: nil)
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.dismiss(animated: false, completion: { () -> Void in
+                UIApplication.shared.statusBarStyle = .lightContent
+                print(image)
+                
+                self.postImage = image
+                self.imageArray.add(self.postImage)
+//                UserDefaults.standard.set("post", forKey: "background")
+//                let imageCropViewController = CDPImageCropViewController(image: image)
+//                imageCropViewController?.delegate = self
+//                print(image)
+//                self.present(imageCropViewController!, animated: true, completion: nil)
+                
+                
+                // nagendra
+                
+////                self.imageCropVC = RSKImageCropViewController(image: image, cropMode: RSKImageCropMode.custom)
+////                
+////                self.imageCropVC.delegate = self
+////                
+////                self.imageCropVC.dataSource = self
+//                
+//                self.navigationController?.present(self.imageCropVC, animated: true, completion: nil)
+                
+            })
+        }
+    }
+//
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+//    {
+//        self.dismiss(animated: false, completion: { () -> Void in
+//            UIApplication.shared.statusBarStyle = .lightContent
+//        })
+//    }
+//    // datasouce mettods
+//    
+//    func imageCropViewControllerCustomMaskRect(_ controller: RSKImageCropViewController) -> CGRect {
+//        var maskSize = CGSize.zero
+//        if controller.isPortraitInterfaceOrientation() {
+//            maskSize = CGSize(width: CGFloat(SCREEN_WIDTH), height: CGFloat(205))
+//        }
+//        else {
+//            maskSize = CGSize(width: CGFloat(220), height: CGFloat(205))
+//        }
+//        let viewWidth: CGFloat = controller.view.frame.width
+//        let viewHeight: CGFloat = controller.view.frame.height
+//        let maskRect = CGRect(x: CGFloat((viewWidth - maskSize.width) * 0.5), y: CGFloat((viewHeight - maskSize.height) * 0.5), width: CGFloat(maskSize.width), height: CGFloat(maskSize.height))
+//        return maskRect
+//        
+//    }
+//    
+//    func imageCropViewControllerCustomMaskPath(_ controller: RSKImageCropViewController) -> UIBezierPath {
+//        let rect: CGRect = controller.maskRect
+//        //        let point1 = CGPoint(x: CGFloat(rect.minX), y: CGFloat(rect.maxY))
+//        //        let point2 = CGPoint(x: CGFloat(rect.maxX), y: CGFloat(rect.maxY))
+//        //        let point3 = CGPoint(x: CGFloat(rect.midX), y: CGFloat(rect.minY))
+//        //        let triangle = UIBezierPath()
+//        //        triangle.move(to: point1)
+//        //        triangle.addLine(to: point2)
+//        //        triangle.addLine(to: point3)
+//        //        triangle.close()
+//        return UIBezierPath.init(rect: rect)
+//    }
+//    
+//    
+//    func imageCropViewControllerCustomMovementRect(_ controller: RSKImageCropViewController) -> CGRect {
+//        
+//        return controller.maskRect
+//    }
+//    
+//    func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
+//        self.dismiss(animated: false, completion: { () -> Void in
+//            UIApplication.shared.statusBarStyle = .lightContent
+//        })
+//    }
+//    
+//    
+//    func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
+//        
+//        self.dismiss(animated: false, completion: { () -> Void in
+//            UIApplication.shared.statusBarStyle = .lightContent
+//            self.confirmClick(with: croppedImage)
+//        })
+//        
+//    }
+//    
+//    
+//    func confirmClick(with image: UIImage) {
+//        
+//        print(image)
+//        
+////        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+////        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "postVC") as! postVC
+//        postImage = image
+//        imageArray.add(postImage)
+//        print(imageArray)
+////        nextViewController.delegate = self
+////        self.navigationController?.pushViewController(nextViewController, animated: true)
+////        
+////        self.dismiss(animated: true, completion: nil)
+//    }
 
 
 }

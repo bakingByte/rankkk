@@ -46,6 +46,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func toggleButton11(_ sender: UIButton)
     {
         ImgMale.image = UIImage(named: "on_select.png")!

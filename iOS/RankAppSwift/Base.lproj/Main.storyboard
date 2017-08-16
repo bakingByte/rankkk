@@ -2212,7 +2212,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qy-K0-QC3">
-                                                            <rect key="frame" x="276" y="6" width="85" height="35"/>
+                                                            <rect key="frame" x="275" y="4" width="85" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" red="0.33871025240000002" green="0.55931835080000003" blue="0.91059248100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -2316,6 +2316,9 @@
                                 <state key="normal" title="Attach Photo / Video">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addGallaryOrVideoSelectionAction:" destination="SIs-2T-qOX" eventType="touchUpInside" id="yFP-uR-vga"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9s-uD-yaG">
                                 <rect key="frame" x="22" y="380" width="328" height="40"/>
@@ -2325,8 +2328,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="clickPostBtn:" destination="1fY-JO-tPS" eventType="touchUpInside" id="pjb-dw-YE9"/>
-                                    <segue destination="1fY-JO-tPS" kind="show" id="433-0h-PFZ"/>
+                                    <action selector="postButtonAction:" destination="SIs-2T-qOX" eventType="touchUpInside" id="1Ar-RE-og1"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bn6-2T-YUA">
@@ -2337,6 +2339,9 @@
                                         <rect key="frame" x="10" y="8" width="40" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="BackBtn-20x20.png"/>
+                                        <connections>
+                                            <action selector="backBtnAction:" destination="SIs-2T-qOX" eventType="touchUpInside" id="Bgs-aX-VKm"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Updates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaP-Jt-Fm6">
                                         <rect key="frame" x="46" y="12" width="144" height="21"/>
@@ -2360,6 +2365,7 @@
                     </view>
                     <connections>
                         <outlet property="txtView" destination="Kgc-TH-mwu" id="wLg-vC-xii"/>
+                        <outlet property="txt_description" destination="Kws-SP-IRR" id="LeG-1f-0ai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJq-yA-whn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3167,8 +3173,8 @@
         <image name="video.png" width="720" height="552"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tTX-jQ-WVd"/>
         <segue reference="44b-bS-xxH"/>
-        <segue reference="433-0h-PFZ"/>
         <segue reference="WgI-eK-ecr"/>
     </inferredMetricsTieBreakers>
 </document>
