@@ -6,6 +6,7 @@
 //  Copyright © 2017 MegaInfomatic. All rights reserved.
 //
 
+
 import UIKit
 
 class PostDetailsViewController: UIViewController {
@@ -45,21 +46,21 @@ class PostDetailsViewController: UIViewController {
         //             */
         //
         
-        lblLikeCount.text = postDetailDict?.value(forKey: "like") as? String ?? ""
-        lblDisLikeCount.text = postDetailDict?.value(forKey: "dislike") as? String ?? ""
-        lblTitle.text = postDetailDict?.value(forKey: "title") as? String ?? ""
-        imgBackgroundPost.image = UIImage(named: postImageStr as? String ?? "")
+//        lblLikeCount.text = postDetailDict?.value(forKey: "like") as? String ?? ""
+//        lblDisLikeCount.text = postDetailDict?.value(forKey: "dislike") as? String ?? ""
+//        lblTitle.text = postDetailDict?.value(forKey: "title") as? String ?? ""
+//        imgBackgroundPost.image = UIImage(named: postImageStr as? String ?? "")
+//        
+//        lblCommentCount.text = postDetailDict?.value(forKey: "comment") as? String ?? ""
+//        
+//        print(postDetailDict ?? "")
         
-                lblCommentCount.text = postDetailDict?.value(forKey: "comment") as? String ?? ""
-        
-        print(postDetailDict ?? "")
         
         
-
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
     @IBAction func btnLikeButtonAction(_ sender: Any) {
         
         let myString = postDetailDict?.value(forKey: "like") as? String ?? ""
@@ -125,38 +126,42 @@ class PostDetailsViewController: UIViewController {
     
     @IBAction func btnCommentButtonAction(_ sender: Any) {
         
-        let message = "Comment"
-        //                let messageName = message + "\"" + (self.ClientName) + "\""
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "CommentVC") as! CommentViewController
+        self.navigationController?.pushViewController(nextViewController, animated: true)
         
-        let alertController = UIAlertController(title: message as String, message: "", preferredStyle: .alert)
+//        let message = "Comment"
+//        //                let messageName = message + "\"" + (self.ClientName) + "\""
+//        
+//        let alertController = UIAlertController(title: message as String, message: "", preferredStyle: .alert)
+//        
+//        let OkAction = UIAlertAction(title: "OK", style: .default, handler: {
+//            (action : UIAlertAction!) -> Void in
+//            
+//            let textField = alertController.textFields![0] as UITextField
+//            print(textField)
+//            let commentText:NSString = textField.text! as NSString
+//            
+//            print(commentText)
+//            self.CommentDataOnServer(postDetailDict:self.postDetailDict!,commentText:commentText )
+//        })
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+//            (action : UIAlertAction!) -> Void in
+//            
+//            
+//        })
+//        
+//        alertController.addTextField { (textField : UITextField!) -> Void in
+//            textField.placeholder = ""
+//            textField.textColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0)
+//            
+//        }
+//        
+//        alertController.addAction(OkAction)
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true, completion: nil)
         
-        let OkAction = UIAlertAction(title: "OK", style: .default, handler: {
-            (action : UIAlertAction!) -> Void in
-            
-            let textField = alertController.textFields![0] as UITextField
-            print(textField)
-            let commentText:NSString = textField.text! as NSString
-            
-            print(commentText)
-            self.CommentDataOnServer(postDetailDict:self.postDetailDict!,commentText:commentText )
-        })
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
-            (action : UIAlertAction!) -> Void in
-            
-            
-        })
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = ""
-            textField.textColor = UIColor(red:0/255.0, green:0/255.0, blue:0/255.0, alpha: 1.0)
-            
-        }
-        
-        alertController.addAction(OkAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-      
     }
     
     
@@ -186,5 +191,6 @@ class PostDetailsViewController: UIViewController {
     
     
     
-
+    
 }
+

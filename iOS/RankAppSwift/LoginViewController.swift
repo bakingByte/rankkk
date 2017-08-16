@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var txt_username: UITextField!
     @IBOutlet weak var txt_password: UITextField!
     var loginDetails: NSDictionary!
@@ -38,45 +38,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if isValid(){
             
             AppDelegate.showPrgressHUD()
-                    loginDetails = ["email" :txt_username.text ?? "" ,"password":txt_password.text ?? ""]
-                    print("%@",loginDetails)
-                    let manager          = WebServices()
-                    manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LOGIN, completionHandler: { (response, responseCode, nil) in
-                        
-                        AppDelegate.hidePrgressHUD()
-                        print(response ?? "")
-                        if let success = response?["success"] as? NSNumber {
-                            if success == 1 {
-                                
-                                appDelegate.mainDic = response ?? [:]
+            loginDetails = ["email" :txt_username.text ?? "" ,"password":txt_password.text ?? ""]
+            print("%@",loginDetails)
+            let manager          = WebServices()
+            manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kTRIP_LOGIN, completionHandler: { (response, responseCode, nil) in
                 
-                self.loginData.name = response?.value(forKey: "name") as? NSString ?? ""
-
-                                
-//            // setting a value for a key
-//            let newPerson = login(name: "Joe", age: 10)
-//            var people = [login]()
-//            people.append(newPerson)
-//            let encodedData = NSKeyedArchiver.archivedData(withRootObject: people)
-//            UserDefaults.standard.set(encodedData, forKey: "people")
-//            
-//            // retrieving a value for a key
-//            if let data = UserDefaults.standard.data(forKey: "people"),
-//                let myPeopleList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [login] {
-//                myPeopleList.forEach({print( $0.name, $0.age)})  // Joe 10
-//            } else {
-//                print("There is an issue")
-//            }
-                                
-                                
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-            self.navigationController?.pushViewController(nextViewController, animated: true)
-                            }else{
-                            self.commonMethod.showPopup(Title: "Warning", Message: "Email and password do'nt exist!", Self: self)
-                            }
-                        }
-        }
+                AppDelegate.hidePrgressHUD()
+                print(response ?? "")
+                if let success = response?["success"] as? NSNumber {
+                    if success == 1 {
+                        
+                        appDelegate.mainDic = response ?? [:]
+                        
+                        self.loginData.name = response?.value(forKey: "name") as? NSString ?? ""
+                        
+                        
+                        //            // setting a value for a key
+                        //            let newPerson = login(name: "Joe", age: 10)
+                        //            var people = [login]()
+                        //            people.append(newPerson)
+                        //            let encodedData = NSKeyedArchiver.archivedData(withRootObject: people)
+                        //            UserDefaults.standard.set(encodedData, forKey: "people")
+                        //
+                        //            // retrieving a value for a key
+                        //            if let data = UserDefaults.standard.data(forKey: "people"),
+                        //                let myPeopleList = NSKeyedUnarchiver.unarchiveObject(with: data) as? [login] {
+                        //                myPeopleList.forEach({print( $0.name, $0.age)})  // Joe 10
+                        //            } else {
+                        //                print("There is an issue")
+                        //            }
+                        
+                        
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+                        self.navigationController?.pushViewController(nextViewController, animated: true)
+                    }else{
+                        self.commonMethod.showPopup(Title: "Warning", Message: "Email and password do'nt exist!", Self: self)
+                    }
+                }
+            }
             )}
     }
     
@@ -140,205 +140,205 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func FacebookLoginButton(_ sender: Any) {
-    
-     view.endEditing(true)
-     
-     let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-     //fbLoginManager.loginBehavior = FBSDKLoginBehavior.Browser
-     fbLoginManager.logOut()
-     fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self, handler: { (result, error) -> Void in
-     
-     //        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
-//     AppDelegate.hidePrgressHUD()
-     if (error == nil)
-     {
-     print (result ?? "")
-     self.returnUserData()
-     
-     }
-     else
-     {
-     
-     }
-     })
-     
-     
-     
-     }
-     
-     func returnUserData(){
-     if((FBSDKAccessToken.current()) != nil){
-     FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
-     if (error == nil){
-     if let result = result as? NSDictionary{
         
-        print(result)
-     
-     if let val = result["email"] as? String{
-     // now val is not nil and the Optional has been unwrapped, so use it
-     self.facebookEmail = val
-     }
-     print(self.facebookEmail)
-     
-     if let val = result.value(forKey: "id") as? String{
-     // now val is not nil and the Optional has been unwrapped, so use it
-     self.facebookId = val
-     self.facebookURLImage  = "https://graph.facebook.com/" + val + "/picture?type=large"
-     
-     }
-     print(self.facebookId)
-     
-     if let val = result.value(forKey: "name") as? String{
-     // now val is not nil and the Optional has been unwrapped, so use it
-     self.facebookFirstName = val
-     }
-     print(self.facebookFirstName)
-     
-     
-     
-     //                        if let picture = result.value(forKey: "picture") as? NSDictionary {
-     //                            if let data = picture.value(forKey: "data") as? NSDictionary {
-     //                                if let url = data.value(forKey: "url") as? String {
-     //                                    self.facebookURLImage = url
-     //                                }
-     //                            }
-     //
-     //                        }
-     print(self.facebookLastName)
-     
-     
-     //{"s_id":"1","login_type":"1","device_type":"A","device_token":"456554654464","prof_image":"","name":"sumit","email":"sumit.shineweb@gmail.com"}
-     
-     if self.facebookEmail == "" {
-//     appDelegate.showPopup(Title: "Please Email public of facebook account to use this app.", Message: "", Self: self)
-     
-     }
-     else {
-//     self.facebookLoginSeviceCall()
-     }
-     
-     }
-     }
-     
-     } )
-     }
-     }
-     
-     // MARK:- Facebook Login Methods
-     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
-     {
-     if(error != nil)
-     {
-     print(error.localizedDescription)
-     return
-     }
-     
-     if let userToken = result.token
-     {
-     // Get User access token
-     let token:FBSDKAccessToken = result.token
-     
-     print("TOken = \(FBSDKAccessToken.current().tokenString)")
-     print("User ID = \(FBSDKAccessToken.current().userID)")
-     
-     //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-     //            let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("HomTabViewController") as! HomTabViewController
-     //            self.navigationController?.pushViewController(nextViewController, animated: true)
-     
-     
-     }
-     }
-     
-     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
-     {
-     print("User is logged out")
-     }
+        view.endEditing(true)
+        
+        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
+        //fbLoginManager.loginBehavior = FBSDKLoginBehavior.Browser
+        fbLoginManager.logOut()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], from: self, handler: { (result, error) -> Void in
+            
+            //        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email", "user_friends"], handler: { (result, error) -> Void in
+            //     AppDelegate.hidePrgressHUD()
+            if (error == nil)
+            {
+                print (result ?? "")
+                self.returnUserData()
+                
+            }
+            else
+            {
+                
+            }
+        })
+        
+        
+        
+    }
     
-//    func facebookLoginSeviceCall() {
-//        
-//        //    "s_id":"1","login_type":"1","device_type":"A","device_token":"456554654464","prof_image":"","name":"sumit","email":"sumit.shineweb@gmail.com"
-//        
-//        // device_id = UserDefaults.standard.value(forKey: "device_id")! as! String
-//        loginDetails = ["s_id" : facebookId ,
-//                        "login_type" : "1" ,
-//                        "name" :facebookFirstName ,
-//                        "profile_img" : self.facebookURLImage,
-//                        "email":facebookEmail ,
-//                        "device_id":appDelegate.deviceId,
-//                        "device_type":kDEVICE_TYPE,
-//                        "device_token":appDelegate.deviceToken ?? ""
-//        ]
-//        
-//        print("%@",loginDetails)
-//        
-//        appDelegate.custumIndicatorShow(button: btnFacbook)
-//        self.btnFacbook.setTitleColor(UIColor.clear, for: .normal)
-//        
-//        let manager          = WebServices()
-//        manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kUSER_LOGIN, completionHandler: { (response, responseCode, nil) in
-//            
-//            appDelegate.custumIndicatorHide()
-//            self.btnFacbook.setTitleColor(UIColor.white, for: .normal)
-//            
-//            if (responseCode?.intValue  == 200){
-//                let mainResponse = response?["result"] as? NSDictionary ?? [:]
-//                
-//                AppDelegate.hidePrgressHUD()
-//                appDelegate.mainDic = mainResponse
-//                appDelegate.loginDict = mainResponse
-//                appDelegate.PayPalConfigrationCheck = ""
-//                UserDefaults.standard.set("", forKey: "EDITBUTTONSELECTION")
-//                UserDefaults.standard.set("", forKey: "EDITTOBACKBUTTON")
-//                print("\n\n login screen DATA AFTER PARSING IS============= \n\n\(appDelegate.mainDic)\n\n\n")
-//                
-//                do {
-//                    UserDefaults.standard.set(mainResponse, forKey: "LoginData")
-//                    UserDefaults.standard.set(mainResponse["sessionid"], forKey: "sessionid")
-//                    UserDefaults.standard.synchronize()
-//                }catch let error as NSError {
-//                    print ("error :", error)
-//                    UserDefaults.standard.set(nil, forKey: "sessionid")
-//                    UserDefaults.standard.set(nil, forKey: "LoginData")
-//                    UserDefaults.standard.synchronize()
-//                }
-//                
-//                
-//                if let profile_status = mainResponse["profile_status"] as? String {
-//                    // if frofile complete
-//                    if profile_status == "1" {
-//                        
-//                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-//                        self.navigationController?.pushViewController(nextViewController, animated: true)
-//                        
-//                        // if not  frofile complete
-//                    } else {
-//                        
-//                        
-//                        
-//                        appDelegate.flagStep4Popup = false
-//                        appDelegate.flagStep5Popup = false
-//                        
-//                        let alertView = UIAlertController(title: "HARE Account Creation Successful", message: "Congratulations on your new HARE account. Welcome to the family!", preferredStyle: .alert)
-//                        alertView.addAction(UIAlertAction(title: "OK", style: .cancel, handler: self.okButtonClick))
-//                        self.present(alertView, animated: true, completion: nil)
-//                    }
-//                    
-//                }
-//                
-//                
-//                
-//            }else{
-//                if (responseCode?.intValue  == 100){
-//                    if let result =  response?["result"] as? String {
-//                        appDelegate.showPopup(Title: "Unable to Create Account", Message: result, Self: self)
-//                    }
-//                    
-//                    AppDelegate.hidePrgressHUD()
-//                }
-//                
-//            }
-//        })
-//    }
-
+    func returnUserData(){
+        if((FBSDKAccessToken.current()) != nil){
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+                if (error == nil){
+                    if let result = result as? NSDictionary{
+                        
+                        print(result)
+                        
+                        if let val = result["email"] as? String{
+                            // now val is not nil and the Optional has been unwrapped, so use it
+                            self.facebookEmail = val
+                        }
+                        print(self.facebookEmail)
+                        
+                        if let val = result.value(forKey: "id") as? String{
+                            // now val is not nil and the Optional has been unwrapped, so use it
+                            self.facebookId = val
+                            self.facebookURLImage  = "https://graph.facebook.com/" + val + "/picture?type=large"
+                            
+                        }
+                        print(self.facebookId)
+                        
+                        if let val = result.value(forKey: "name") as? String{
+                            // now val is not nil and the Optional has been unwrapped, so use it
+                            self.facebookFirstName = val
+                        }
+                        print(self.facebookFirstName)
+                        
+                        
+                        
+                        //                        if let picture = result.value(forKey: "picture") as? NSDictionary {
+                        //                            if let data = picture.value(forKey: "data") as? NSDictionary {
+                        //                                if let url = data.value(forKey: "url") as? String {
+                        //                                    self.facebookURLImage = url
+                        //                                }
+                        //                            }
+                        //
+                        //                        }
+                        print(self.facebookLastName)
+                        
+                        
+                        //{"s_id":"1","login_type":"1","device_type":"A","device_token":"456554654464","prof_image":"","name":"sumit","email":"sumit.shineweb@gmail.com"}
+                        
+                        if self.facebookEmail == "" {
+                            //     appDelegate.showPopup(Title: "Please Email public of facebook account to use this app.", Message: "", Self: self)
+                            
+                        }
+                        else {
+                            //     self.facebookLoginSeviceCall()
+                        }
+                        
+                    }
+                }
+                
+            } )
+        }
+    }
+    
+    // MARK:- Facebook Login Methods
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!)
+    {
+        if(error != nil)
+        {
+            print(error.localizedDescription)
+            return
+        }
+        
+        if let userToken = result.token
+        {
+            // Get User access token
+            let token:FBSDKAccessToken = result.token
+            
+            print("TOken = \(FBSDKAccessToken.current().tokenString)")
+            print("User ID = \(FBSDKAccessToken.current().userID)")
+            
+            //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            //            let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("HomTabViewController") as! HomTabViewController
+            //            self.navigationController?.pushViewController(nextViewController, animated: true)
+            
+            
+        }
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!)
+    {
+        print("User is logged out")
+    }
+    
+    //    func facebookLoginSeviceCall() {
+    //
+    //        //    "s_id":"1","login_type":"1","device_type":"A","device_token":"456554654464","prof_image":"","name":"sumit","email":"sumit.shineweb@gmail.com"
+    //
+    //        // device_id = UserDefaults.standard.value(forKey: "device_id")! as! String
+    //        loginDetails = ["s_id" : facebookId ,
+    //                        "login_type" : "1" ,
+    //                        "name" :facebookFirstName ,
+    //                        "profile_img" : self.facebookURLImage,
+    //                        "email":facebookEmail ,
+    //                        "device_id":appDelegate.deviceId,
+    //                        "device_type":kDEVICE_TYPE,
+    //                        "device_token":appDelegate.deviceToken ?? ""
+    //        ]
+    //
+    //        print("%@",loginDetails)
+    //
+    //        appDelegate.custumIndicatorShow(button: btnFacbook)
+    //        self.btnFacbook.setTitleColor(UIColor.clear, for: .normal)
+    //
+    //        let manager          = WebServices()
+    //        manager.getServerDataWith(dict_Parameters: loginDetails, withPostType: kUSER_LOGIN, completionHandler: { (response, responseCode, nil) in
+    //
+    //            appDelegate.custumIndicatorHide()
+    //            self.btnFacbook.setTitleColor(UIColor.white, for: .normal)
+    //
+    //            if (responseCode?.intValue  == 200){
+    //                let mainResponse = response?["result"] as? NSDictionary ?? [:]
+    //
+    //                AppDelegate.hidePrgressHUD()
+    //                appDelegate.mainDic = mainResponse
+    //                appDelegate.loginDict = mainResponse
+    //                appDelegate.PayPalConfigrationCheck = ""
+    //                UserDefaults.standard.set("", forKey: "EDITBUTTONSELECTION")
+    //                UserDefaults.standard.set("", forKey: "EDITTOBACKBUTTON")
+    //                print("\n\n login screen DATA AFTER PARSING IS============= \n\n\(appDelegate.mainDic)\n\n\n")
+    //
+    //                do {
+    //                    UserDefaults.standard.set(mainResponse, forKey: "LoginData")
+    //                    UserDefaults.standard.set(mainResponse["sessionid"], forKey: "sessionid")
+    //                    UserDefaults.standard.synchronize()
+    //                }catch let error as NSError {
+    //                    print ("error :", error)
+    //                    UserDefaults.standard.set(nil, forKey: "sessionid")
+    //                    UserDefaults.standard.set(nil, forKey: "LoginData")
+    //                    UserDefaults.standard.synchronize()
+    //                }
+    //
+    //
+    //                if let profile_status = mainResponse["profile_status"] as? String {
+    //                    // if frofile complete
+    //                    if profile_status == "1" {
+    //                        
+    //                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+    //                        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+    //                        self.navigationController?.pushViewController(nextViewController, animated: true)
+    //                        
+    //                        // if not  frofile complete
+    //                    } else {
+    //                        
+    //                        
+    //                        
+    //                        appDelegate.flagStep4Popup = false
+    //                        appDelegate.flagStep5Popup = false
+    //                        
+    //                        let alertView = UIAlertController(title: "HARE Account Creation Successful", message: "Congratulations on your new HARE account. Welcome to the family!", preferredStyle: .alert)
+    //                        alertView.addAction(UIAlertAction(title: "OK", style: .cancel, handler: self.okButtonClick))
+    //                        self.present(alertView, animated: true, completion: nil)
+    //                    }
+    //                    
+    //                }
+    //                
+    //                
+    //                
+    //            }else{
+    //                if (responseCode?.intValue  == 100){
+    //                    if let result =  response?["result"] as? String {
+    //                        appDelegate.showPopup(Title: "Unable to Create Account", Message: result, Self: self)
+    //                    }
+    //                    
+    //                    AppDelegate.hidePrgressHUD()
+    //                }
+    //                
+    //            }
+    //        })
+    //    }
+    
 }

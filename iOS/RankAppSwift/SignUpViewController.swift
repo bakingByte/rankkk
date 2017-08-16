@@ -8,19 +8,61 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
+
+    @IBOutlet weak var ImgMale: UIImageView!
+    @IBOutlet weak var ImgFemail: UIImageView!
     
     @IBOutlet weak var txt_firstname: UITextField!
     @IBOutlet weak var txt_lastname: UITextField!
     @IBOutlet weak var txt_email: UITextField!
     @IBOutlet weak var txt_password: UITextField!
+    @IBOutlet weak var txt_dateOfBirth: UITextField!
+    @IBOutlet weak var txt_hru: UITextField!
+    
+    
     var loginDetails: NSDictionary!
-        var commonMethod = CommonClass()
-    override func viewDidLoad() {
+    var commonMethod = CommonClass()
+    let datePicker = UIDatePicker()
+    
+   
+    
+    override func viewDidLoad()
+    
+    {
+        ImgMale.image = UIImage(named: "off_select.png")!
+        ImgFemail.image = UIImage(named: "off_select.png")!
+        
+      
         super.viewDidLoad()
+        
+        //Looks for single or multiple taps.
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
 
         // Do any additional setup after loading the view.
     }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @IBAction func toggleButton11(_ sender: UIButton)
+    {
+        ImgMale.image = UIImage(named: "on_select.png")!
+      ImgFemail.image = UIImage(named: "off_select.png")!
+    }
+    
+    
+    @IBAction func toggleButton12(_ sender: UIButton)
+    {
+        ImgMale.image = UIImage(named: "off_select.png")!
+        ImgFemail.image = UIImage(named: "on_select.png")!
+    }
+    
     
     @IBAction func btnSignUp(_ sender: Any){
         
@@ -28,9 +70,9 @@ class SignUpViewController: UIViewController {
             
             AppDelegate.showPrgressHUD()
             
-//            loginDetails = ["password_confirmation" :txt_password.text ?? "","lastname":txt_lastname.text ?? "","firstname":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_id": "wqwqwqwqwqwq","device_type": "I","device_token": "hjsaghsahhs","channel":"APP"]
+            //            loginDetails = ["password_confirmation" :txt_password.text ?? "","lastname":txt_lastname.text ?? "","firstname":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","device_id": "wqwqwqwqwqwq","device_type": "I","device_token": "hjsaghsahhs","channel":"APP"]
             
-            loginDetails = ["password_confirmation" :txt_password.text ?? "","name":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","identity": "admin","date_of_birth": "11/07/1991","channel":"APP"]
+            loginDetails = ["password_confirmation" :txt_password.text ?? "","name":txt_firstname.text ?? "","email":txt_email.text ?? "","password":txt_password.text ?? "","identity": "admin","date_of_birth": txt_dateOfBirth.text ?? "","channel":"APP"]
             
             print("%@",loginDetails)
             
@@ -45,13 +87,13 @@ class SignUpViewController: UIViewController {
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
                 self.navigationController?.pushViewController(nextViewController, animated: true)
                 
-//                self.dismiss(animated: true, completion: nil)
-//                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GlobeViewController") as! GlobeViewController
-//                self.navigationController?.present(nextViewController, animated: true, completion: nil)
+                //                self.dismiss(animated: true, completion: nil)
+                //                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                //                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "GlobeViewController") as! GlobeViewController
+                //                self.navigationController?.present(nextViewController, animated: true, completion: nil)
                 
             }
-               
+                
             )}
         AppDelegate.hidePrgressHUD()
     }
@@ -91,13 +133,65 @@ class SignUpViewController: UIViewController {
             commonMethod.showPopup(Title: "Unable to Create Account", Message: "The passwords do not match.", Self: self)
             return false
         }
-
+        
         return true
     }
-
+    
     @IBAction func BackButtonAction(_ sender: Any) {
         
         self.navigationController?.popViewController(animated: true)
     }
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField)
+    {
+        if textField == txt_dateOfBirth {
+            self.showDatePicker()
+        }
+    }
+    
+    func showDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        //done button & cancel button
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.bordered, target: self, action: #selector(SignUpViewController.donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.bordered, target: self, action: #selector(SignUpViewController.cancelDatePicker))
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        // add toolbar to textField
+        txt_dateOfBirth.inputAccessoryView = toolbar
+        // add datepicker to textField
+        txt_dateOfBirth.inputView = datePicker
+        
+    }
+    
+    func donedatePicker(){
+        //For date formate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        txt_dateOfBirth.text = formatter.string(from: datePicker.date)
+        //dismiss date picker dialog
+        self.view.endEditing(true)
+    }
+    
+    func cancelDatePicker(){
+        //cancel button dismiss datepicker dialog
+        self.view.endEditing(true)
+    }
+    
+   
+    
+    
+    
+//    @IBAction func clickFemailAction(_ sender: UIButton)
+//    {
+//        ImgMale.image = UIImage(named: "off_select.png")!
+//        ImgFemail.image = UIImage(named: "on_select.png")!
+//    }
+    
 }
